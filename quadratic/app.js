@@ -1,83 +1,43 @@
-alert("Квадратное уравнение ax^2+bx+c");
-var a = prompt ("Введите значения a", " ");
-var b = prompt ("Введите значения b", " ");
-var c = prompt ("Введите значения c", " ");
-Diskr = (b*b)-(4*a*c);
-if (c != 0 && a != 0 && b != 0)
-{	
-if (Diskr > 0)
-		{
-			x1 = (-b + Math.sqrt(Diskr))/2*a;
-			x2 = (-b - Math.sqrt(Diskr))/2*a;
-			document.write("x1 = ",x1.toFixed(2) );
-			document.write(" x2 = ",x2.toFixed(2) );;
+	var a = prompt("Введите аргумент а", "");
+	var b = prompt("Введите аргумент b", "");
+	var c = prompt("Введите аргумент c", "");
+
+	if (a != 0 && b != 0 && c != 0) {
+		var d = b * b - 4 * a * c;
+
+		if (d > 0) {
+			alert("Дискриминант больше нуля, корня 2");
+			var x1 = -b / ( 2 * a ) - Math.sqrt( d ) / ( 2 * a );
+			var x2 = -b / ( 2 * a ) + Math.sqrt( d ) / ( 2 * a );
+			document.write("x1 = ", x1);
+			document.write ("<br \/>");
+			document.write("x2 = ", x2);
+		} else if (d == 0) {
+			var x1 = -b / ( 2 * a );
+			document.write("Дискриминант равен 0");
+			document.write("x1, x2 = ", x1);
+		} else if (d < 0) {
+			alert("Комплексные корни");
+			document.write("x1 = ");
+			document.write("(", -b, "+", "√(", - d, ")","i", ")", "/", 2 * a);
+			document.write ("<br \/>");
+			document.write("   ", " ", "x2 = ");
+			document.write("(", -b, "-", "√(", - d, ")","i", ")", "/", 2 * a);
 		}
-	else if (Diskr == 0)
-		{
-			x1 = (-b/2*a);
-			document.write("x1 = ",x1);
-		
+
+	} else if (a == 0 && b != 0 && c != 0) {
+		var x = -c / b;
+		document.write("x = ",x);
+	} else if (a != 0 && b == 0 && c != 0) {
+		if (c < 0) {
+			var x = -c/a;
+			x = Math.sqrt(x);
+			document.write("x = ",x);
+		} else if (c > 0) {
+			document.write("x = ", "√", -c/a);
 		}
-	else if (Diskr < 0)
-		{
-			Diskr = Math.abs(Diskr);
-			x1 = -1*b + "/" + 2*a + "+" +  Math.sqrt(Diskr).toFixed(2) + "*i" + "/" + 2*a; 
-			x2 = -1*b + "/" + 2*a + "-" + Math.sqrt(Diskr).toFixed(2) + "*i" + "/" + 2*a;
-			document.write("x1 = ",x1);
-			document.write(" x2 = ",x2 );
-		}
-}
-
- if (c == 0)
-{
-	if (Diskr > 0)
-		{
-			x1 = (-b + Math.sqrt(Diskr))/2*a;
-			x2 = (-b - Math.sqrt(Diskr))/2*a;
-			document.write("x1 = ",x1.toFixed(2) );
-			document.write(" x2 = ",x2.toFixed(2) );
-	
-		}
-	else if (Diskr == 0)
-		{
-			x1 = (-b/2*a);
-			document.write("x1 =", x1 );
-			
-		}
-	else if (Diskr < 0)
-		{
-			Diskr = Math.abs(Dis);
-			x1 = -1*b + "/" + 2*a + "+" + Diskr**(1/2) + "*i" + "/" + 2*a;
-			x2 = -1*b + "/" + 2*a + "-" + Diskr**(1/2) + "*i" + "/" + 2*a;
-			document.write("x1 = ",x1.toFixed(2) );
-			document.write(" x2 = ",x2.toFixed(2) );
-		}
-	
-}
-
- if (a == 0 && b !=0 && c != 0)
-{
-	x = -c / b;
-	document.write("x1 = ",x1 );
-
-}
-
-if (a != 0 && b == 0 && c != 0)
-{	if (c < 0)
-		x = Math.sqrt(-c / a);
-	else
-		{
-			x = "("+"i^2*" +  c +"/"+ a+")"+"^(1/2)";
-		}
-		document.write("x1 = ",x.toFixed(2) ); 
-		document.write(" x2 = -",x.toFixed(2));
-
-}
-  if (a == 0 && b ==0 && c != 0)
-{
-	document.write("Нет корней" );
-
-}
-
-
-
+	} else if (a == 0 && b == 0 && c != 0){
+		document.write("не равно 0");
+	} else if (c == 0) {
+		document.write("x = ", "0");
+	}
